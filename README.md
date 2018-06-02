@@ -1,5 +1,5 @@
 # CodingLife
-
+$$s.t \alpha_1y_1 + \alpha_2y_2 = -\sum\limits_{i=3}^{m} y_i \alpha_i = \varsigma$$
 $$ 0 \leq \alpha_i \leq C \qquad i=1,2 $$
 
 $$L(w,b,\alpha) = \frac{1}{2}||w||_2^2 \sum\limits_{i=1}^{m} {\alpha_i {[y_i (w^Tx_i + b) - 1]}} \qquad s.t. \quad \alpha_i \geq 0$$
