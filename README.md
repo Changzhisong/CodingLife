@@ -1,9 +1,8 @@
 # CodingLife
-$$s.t \alpha_1y_1 + \alpha_2y_2 = -\sum\limits_{i=3}^{m} y_i \alpha_i = \varsigma$$
-$$ 0 \leq \alpha_i \leq C \qquad i=1,2 $$
-$$L(w,b,\alpha ) = \frac{1}{2}||w||_2^2 \sum\limits_{i=1}^{m} \alpha_i [ y_i (w^Tx_i+b) - 1 ] \qquad s.t \quad \alpha_i \geq 0$$
 
-$$L(w,b,\alpha ) =\frac{1}{2}||w||_2^2 \sum\limits_{i=1}^{m} \alpha_i ( y_i (w^Tx_i + b ) - 1) \qquad s.t. \quad \alpha_i \geq 0$$ 
+$$L(w,b,\alpha ) = \frac{1}{2}||w||_2^2 \sum\limits_{i=1}^{m} \alpha_i [ y_i (w^Tx_i+b) - 1 ] \qquad s.t \alpha_i \geq 0$$
+
+$$L(w,b,\alpha ) =\frac{1}{2}||w||_2^2 \sum\limits_{i=1}^{m} \alpha_i  \qquad s.t \alpha_i \geq 0$$ 
 
 $$\underbrace{max}_{\alpha_i \geq 0} \ \underbrace{min}_{w,b} \ L(w,b,\alpha )$$
 
@@ -20,6 +19,9 @@ $$\underbrace{min}_{\alpha} \ \frac{1}{2} \sum\limits_{i=1}^{m} \sum\limits_{j=1
 $$ s.t. \ \sum\limits_{i=1}^{m}\alpha_iy_i = 0$$
 
 $$ \alpha_i \geq 0  \qquad i=1,2,...m $$
+
+$$s.t \alpha_1y_1 + \alpha_2y_2 = -\sum\limits_{i=3}^{m} y_i \alpha_i = \varsigma$$
+$$ 0 \leq \alpha_i \leq C \qquad i=1,2 $$
 
 $$L(w,b,\alpha ) = \frac{1}{2}||w||_2^2 \sum\limits_{i=1}^{m} \alpha_i \qquad s.t \quad \alpha_i \geq 0$$
 
