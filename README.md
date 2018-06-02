@@ -2,15 +2,21 @@
 
 $$L(w,b,\alpha ) =\frac{1}{2}||w||_2^2 \sum\limits_{i=1}^{m} \alpha_i [ y_i  - 1 ] \qquad s.t \alpha_i \geq 0$$
 
-$$L(w,b,\alpha ) =\frac{1}{2}||w||_2^2 \sum\limits_{i=1}^{m} \alpha_i  \qquad s.t \alpha_i \geq 0$$ 
+$$L(w,b,\alpha ) =\frac{1}{2}||w||_2^2 $\sum\limits_{i=1}^{m}$ \alpha_i  \qquad s.t \alpha_i \geq 0$$ 
+
+
+$L(w,b,\alpha ) =\frac{1}{2}||w||_2^2$ $\sum\limits_{i=1}^{m}$ $\alpha_i[y_i (w^Tx_i + b)-1] \qquad s.t \alpha_i \geq 0$
+
+----
+----
 
 $$\underbrace{max}_{\alpha_i \geq 0} {\underbrace{min}_{w,b}} \ L(w,b,\alpha )$$
 
-$${\underbrace{max}_{\alpha_i\geq 0}}{\underbrace{min}_{w,b}} \ L(w,b,\alpha )$$
+$$\underbrace{max}_{\alpha_i \geq 0} \underbrace{min}_{w,b}  L(w,b,\alpha )$$
 
-${\underbrace{max}_{\alpha_i\geq 0}}{\underbrace{min}_{w,b}} \ L(w,b,\alpha )$
+${\underbrace{max}_{\alpha_i \geq 0}} {\underbrace{min}_{w,b}} \ L(w,b,\alpha )$
 
-$$\underbrace{max}_{\alpha_i\geq 0}\underbrace{min}_{w,b} \ L(w,b,\alpha )$$
+$$\underbrace{max}_{\alpha_i \geq 0} \underbrace{min}_{w,b} \ L(w,b,\alpha )$$
 
 求$\underbrace{min}_{w,b} \ L(w,b,\alpha)$对$\alpha$的极大，即是**对偶问题**：
 
@@ -36,3 +42,9 @@ $$\underbrace{min}_{\alpha_1,\alpha_1} \frac{1}{2}K_{11} \alpha_1^2 + \frac{1}{2
 $$s.t \alpha_1y_1 + \alpha_2y_2 = -\sum\limits_{i=3}^{m} y_i \alpha_i = \varsigma$$
 
 $$\underbrace{max}_{\alpha_i \geq 0}  \underbrace{min}_{w,b} \ L(w,b,\alpha )$$
+
+$$\underbrace{max}_{\alpha_i \geq 0} {\underbrace{min}_{w,b}}  L(w,b,\alpha )$$
+
+$$\underbrace{max}_{\alpha_i \geq 0} L(w,b,\alpha )$$
+
+$\underbrace{max}_{\alpha_i \geq 0}$ ${\underbrace{min}_{w,b}}  L(w,b,\alpha )$
