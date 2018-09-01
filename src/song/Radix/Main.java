@@ -1,19 +1,24 @@
-package job;
+package song;
 
 public class Main {
 
 	public static void main(String[] args) {
+		//tips：ASCII码:0-48，A-65，a-97
 		
+		//任意进制转到10进制  求幂实现 (-B1)=-(B*12^1+1*12^0)=-(11*12+1)=-133
+		System.out.println(Integer.parseInt("-B1",12));//（掉包）
+		System.out.println(anyToTen("-B1",12)); //-133 //（自己实现）
 		
-		System.out.println(Integer.parseInt("-124341",12));//任意进制转到10进制
+		//十进制转任意进制  短除取逆序余数法 -(2*8^1+0*8^0)=-16;  16/8得2余0;2/8得0余2,余数是02,逆余数为20,负数-20
+		System.out.println(Integer.toString(-16,8)); //（掉包）
+		System.out.println(tenToAny(-16,8));  //-20  //（自己实现）短除取逆序余数法
 		
-		System.out.println(anyToTen("-124341",12));//任意进制转到10进制
+		//IP地址转换成十进制数 
+		System.out.println(IPtoDigit1("192.168.255.0"));//方法1：先转二进制在转10进制
+		System.out.println(IPtoDigit2("192.168.255.0"));//方法2：看成256进制
 		
-		System.out.println(Integer.toString(-912,3));//十进制转任意进制
-		
-		System.out.println(tenToAny(-912,3));//十进制转任意进制
-		
-
+		//十进制转回IP地址
+		System.out.println(Digit2IP(new Long("3232300800")));//256进制短除法取逆余
 	}
 	
 	//任意的a进制数s转换为十进制     求幂
@@ -38,8 +43,10 @@ public class Main {
 			char c=s.charAt(i);
 			if(c<58){//该字符属于数字
 				t=c-48;
+			}else if(c<97){
+				t=c-65+10;//字符是大写字母
 			}else{
-				t=c-97+10;//字符是字母 a-10  b-11
+				t=c-97+10;//字符是小写字母
 			}
 			res+=t*(int)Math.pow(a, len-1);
 			len--;
@@ -66,9 +73,9 @@ public class Main {
 		}
 		while(t>0){
 			int temp=t%a;
-			char c = (char)(temp+48); //数字转换成字符，数字字符
+			char c = (char)(temp+48);
 			if(temp>=10){
-				 c = (char)(temp+87);  //数字转换成字母字符 10-a 11-b
+				 c = (char)(temp+87);
 			}
 			s.append(c);
 			t/=a;
@@ -76,6 +83,48 @@ public class Main {
 		if(nagative){
 			s.append('-');
 		}
-		return s.reverse().toString(); //余数逆序
+		return s.reverse().toString();
+
+	}
+	
+	//方法1
+	public static Long IPtoDigit1(String ip){
+		String[] arr =ip.split("\\.");//注意这里不能直接用".",对于.是特殊字符，需要转义,
+		if(arr.length!=4){
+			return (long) -1;//非法IP
+		}
+		String ss="";
+		for(int i=0;i<4;i++){
+			String temp=Integer.toBinaryString(Integer.valueOf(arr[i]));
+			if(temp.length()>8){
+				return (long) -1;//非法IP
+			}
+			while(temp.length()!=8){
+				temp="0"+temp;
+			}
+			ss+=temp;
+		}
+//		System.out.println(ss);
+//		System.out.println(ss.length());
+		return Long.valueOf(ss,2);
+	}
+	
+	//方法二
+	public static Long IPtoDigit2(String ip){
+		String[] arr =ip.split("\\.");
+		return   256*256*256*Long.valueOf(arr[0])
+				+256*256*Long.valueOf(arr[1])
+				+256*Long.valueOf(arr[2])
+				+Long.valueOf(arr[3]);
+	}
+
+	public static String Digit2IP(Long d){
+		String ip="";
+		for (int i = 0; i < 4; i++) {
+			ip="."+d%256+ip;
+			d=d/256;
+		}
+		
+		return ip.substring(1);
 	}
 }
