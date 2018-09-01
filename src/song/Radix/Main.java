@@ -3,37 +3,37 @@ package song;
 public class Main {
 
 	public static void main(String[] args) {
-		//tips£ºASCIIÂë:0-48£¬A-65£¬a-97
+		//tipsï¼šASCIIç :0-48ï¼ŒA-65ï¼Œa-97
 		
-		//ÈÎÒâ½øÖÆ×ªµ½10½øÖÆ  ÇóÃİÊµÏÖ (-B1)=-(B*12^1+1*12^0)=-(11*12+1)=-133
-		System.out.println(Integer.parseInt("-B1",12));//£¨µô°ü£©
-		System.out.println(anyToTen("-B1",12)); //-133 //£¨×Ô¼ºÊµÏÖ£©
+		//ä»»æ„è¿›åˆ¶è½¬åˆ°10è¿›åˆ¶  æ±‚å¹‚å®ç° (-B1)=-(B*12^1+1*12^0)=-(11*12+1)=-133
+		System.out.println(Integer.parseInt("-B1",12));//ï¼ˆè°ƒåŒ…ï¼‰
+		System.out.println(anyToTen("-B1",12)); //-133 //ï¼ˆè‡ªå·±å®ç°ï¼‰
 		
-		//Ê®½øÖÆ×ªÈÎÒâ½øÖÆ  ¶Ì³ıÈ¡ÄæĞòÓàÊı·¨ -(2*8^1+0*8^0)=-16;  16/8µÃ2Óà0;2/8µÃ0Óà2,ÓàÊıÊÇ02,ÄæÓàÊıÎª20,¸ºÊı-20
-		System.out.println(Integer.toString(-16,8)); //£¨µô°ü£©
-		System.out.println(tenToAny(-16,8));  //-20  //£¨×Ô¼ºÊµÏÖ£©¶Ì³ıÈ¡ÄæĞòÓàÊı·¨
+		//åè¿›åˆ¶è½¬ä»»æ„è¿›åˆ¶  çŸ­é™¤å–é€†åºä½™æ•°æ³• -(2*8^1+0*8^0)=-16;  16/8å¾—2ä½™0;2/8å¾—0ä½™2,ä½™æ•°æ˜¯02,é€†ä½™æ•°ä¸º20,è´Ÿæ•°-20
+		System.out.println(Integer.toString(-16,8)); //ï¼ˆæ‰åŒ…ï¼‰
+		System.out.println(tenToAny(-16,8));  //-20  //ï¼ˆè‡ªå·±å®ç°ï¼‰çŸ­é™¤å–é€†åºä½™æ•°æ³•
 		
-		//IPµØÖ·×ª»»³ÉÊ®½øÖÆÊı 
-		System.out.println(IPtoDigit1("192.168.255.0"));//·½·¨1£ºÏÈ×ª¶ş½øÖÆÔÚ×ª10½øÖÆ
-		System.out.println(IPtoDigit2("192.168.255.0"));//·½·¨2£º¿´³É256½øÖÆ
+		//IPåœ°å€è½¬æ¢æˆåè¿›åˆ¶æ•° 
+		System.out.println(IPtoDigit1("192.168.255.0"));//æ–¹æ³•1ï¼šå…ˆè½¬äºŒè¿›åˆ¶åœ¨è½¬10è¿›åˆ¶
+		System.out.println(IPtoDigit2("192.168.255.0"));//æ–¹æ³•2ï¼šçœ‹æˆ256è¿›åˆ¶
 		
-		//Ê®½øÖÆ×ª»ØIPµØÖ·
-		System.out.println(Digit2IP(new Long("3232300800")));//256½øÖÆ¶Ì³ı·¨È¡ÄæÓà
+		//åè¿›åˆ¶è½¬å›IPåœ°å€
+		System.out.println(Digit2IP(new Long("3232300800")));//256è¿›åˆ¶çŸ­é™¤æ³•å–é€†ä½™
 	}
 	
-	//ÈÎÒâµÄa½øÖÆÊıs×ª»»ÎªÊ®½øÖÆ     ÇóÃİ
+	//ä»»æ„çš„aè¿›åˆ¶æ•°sè½¬æ¢ä¸ºåè¿›åˆ¶     æ±‚å¹‚
 	public static int anyToTen(String s,int a){
 		int len=s.length();
 		int res =0;
 		
 		if(a>=36||a<2||len==0){
-			System.out.println("ÊäÈëÓĞÎó");
+			System.out.println("è¾“å…¥æœ‰è¯¯");
 			return res;
 		}
 		
 		boolean nagetive =false;
 		int i=0;
-		if(s.charAt(0)=='-'){ //ÅĞ¶ÏÊÇ·ñÎª¸ºÊı
+		if(s.charAt(0)=='-'){ //åˆ¤æ–­æ˜¯å¦ä¸ºè´Ÿæ•°
 			nagetive=true;
 			i++;
 			len--;
@@ -41,12 +41,12 @@ public class Main {
 		int t;
 		while(len>0){
 			char c=s.charAt(i);
-			if(c<58){//¸Ã×Ö·ûÊôÓÚÊı×Ö
+			if(c<58){//è¯¥å­—ç¬¦å±äºæ•°å­—
 				t=c-48;
 			}else if(c<97){
-				t=c-65+10;//×Ö·ûÊÇ´óĞ´×ÖÄ¸
+				t=c-65+10;//å­—ç¬¦æ˜¯å¤§å†™å­—æ¯
 			}else{
-				t=c-97+10;//×Ö·ûÊÇĞ¡Ğ´×ÖÄ¸
+				t=c-97+10;//å­—ç¬¦æ˜¯å°å†™å­—æ¯
 			}
 			res+=t*(int)Math.pow(a, len-1);
 			len--;
@@ -56,7 +56,7 @@ public class Main {
 	}
 	
 
-	//¶Ì³ıÈ¡ÄæĞòÓàÊı·¨ Çó½â   //Ê®½øÖÆÊıt×ª³Éa½øÖÆÊı
+	//çŸ­é™¤å–é€†åºä½™æ•°æ³• æ±‚è§£   //åè¿›åˆ¶æ•°tè½¬æˆaè¿›åˆ¶æ•°
 	public static String tenToAny(int t,int a){
 		if(a<2||a>36){
 			a=10;
@@ -87,17 +87,17 @@ public class Main {
 
 	}
 	
-	//·½·¨1
+	//æ–¹æ³•1
 	public static Long IPtoDigit1(String ip){
-		String[] arr =ip.split("\\.");//×¢ÒâÕâÀï²»ÄÜÖ±½ÓÓÃ".",¶ÔÓÚ.ÊÇÌØÊâ×Ö·û£¬ĞèÒª×ªÒå,
+		String[] arr =ip.split("\\.");//æ³¨æ„è¿™é‡Œä¸èƒ½ç›´æ¥ç”¨".",å¯¹äº.æ˜¯ç‰¹æ®Šå­—ç¬¦ï¼Œéœ€è¦è½¬ä¹‰,
 		if(arr.length!=4){
-			return (long) -1;//·Ç·¨IP
+			return (long) -1;//éæ³•IP
 		}
 		String ss="";
 		for(int i=0;i<4;i++){
 			String temp=Integer.toBinaryString(Integer.valueOf(arr[i]));
 			if(temp.length()>8){
-				return (long) -1;//·Ç·¨IP
+				return (long) -1;//éæ³•IP
 			}
 			while(temp.length()!=8){
 				temp="0"+temp;
@@ -109,7 +109,7 @@ public class Main {
 		return Long.valueOf(ss,2);
 	}
 	
-	//·½·¨¶ş
+	//æ–¹æ³•äºŒ
 	public static Long IPtoDigit2(String ip){
 		String[] arr =ip.split("\\.");
 		return   256*256*256*Long.valueOf(arr[0])
